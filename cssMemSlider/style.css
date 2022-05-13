@@ -6,7 +6,7 @@ body {
   background-color: #333;
 }
 .wrapper {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -14,6 +14,7 @@ body {
   display: grid;
   width: 100%;
   height: 400px;
+  overflow: hidden;
   grid-template-areas:
     "img img"
     "desc contrl";
@@ -23,7 +24,21 @@ body {
 .slider > .slider-images {
   grid-area: img;
   background-color: cornflowerblue;
+  display: flex;
+  width: 400%;
+  height: 100%;
 }
+
+.slider > .slider-images .slide {
+  width: 25%;
+  transition: all 0.6s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+}
+
 .slider > .slider-descs {
   grid-area: desc;
   background-color: chartreuse;
@@ -35,7 +50,7 @@ body {
 .slider-controls {
   display: flex;
 }
-.slider-controls .slider-label {
+.slider-label {
   width: 10px;
   height: 10px;
   padding: 5px;
@@ -46,13 +61,41 @@ body {
   opacity: 0.5;
   transition: all 0.2s ease-in-out;
 }
-.slider-controls .slider-label:hover {
+.slider-label:hover {
   opacity: 1;
   transform: scale(1.1);
 }
 
 input[name="radio"] {
   visibility: hidden;
+  position: absolute;
+}
+
+#radio1:checked ~ .slider-images > .move {
+  margin-left: 0;
+}
+#radio2:checked ~ .slider-images > .move {
+  margin-left: -25%;
+}
+#radio3:checked ~ .slider-images > .move {
+  margin-left: -50%;
+}
+#radio4:checked ~ .slider-images > .move {
+  margin-left: -75%;
+}
+#radio1:checked ~ .slider-controls > label[for="radio1"] {
+  background-color: chartreuse;
+}
+
+#radio2:checked ~ .slider-controls > label[for="radio2"] {
+  background-color: chartreuse;
+}
+
+#radio3:checked ~ .slider-controls > label[for="radio3"] {
+  background-color: chartreuse;
+}
+#radio4:checked ~ .slider-controls > label[for="radio4"] {
+  background-color: chartreuse;
 }
 
 @media (max-width: 768px) {
