@@ -70,10 +70,23 @@ input[name="radio"] {
   visibility: hidden;
   position: absolute;
 }
-
+#radio1 ~ .slider-images > div:nth-child(1),
+#radio2 ~ .slider-images > div:nth-child(2),
+#radio3 ~ .slider-images > div:nth-child(3),
+#radio4 ~ .slider-images > div:nth-child(4) {
+  opacity: 0;
+  transition: opacity 1s, margin-left 0.1s;
+}
+#radio1:checked ~ .slider-images > div:nth-child(1),
+#radio2:checked ~ .slider-images > div:nth-child(2),
+#radio3:checked ~ .slider-images > div:nth-child(3),
+#radio4:checked ~ .slider-images > div:nth-child(4) {
+  opacity: 1;
+}
 #radio1:checked ~ .slider-images > .move {
   margin-left: 0;
 }
+
 #radio2:checked ~ .slider-images > .move {
   margin-left: -25%;
 }
