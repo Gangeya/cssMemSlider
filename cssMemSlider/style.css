@@ -105,7 +105,6 @@ label:hover {
 
 input[name="radio"] {
   visibility: hidden;
-  position: absolute;
 }
 #radio1 ~ .slider-images > div:nth-child(1),
 #radio2 ~ .slider-images > div:nth-child(2),
